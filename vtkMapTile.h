@@ -72,6 +72,11 @@ public:
   void SetCenter(double x, double y, double z);
 
   // Description:
+  // Get/Set Destination directory path
+  void  SetDestinationDir(const std::string& destdir) {this->Destination = destdir;}
+  std::string GetDestinationDir() {return this->Destination;}
+
+  // Description:
   // Create the geometry and download the image if necessary
   void Init();
 
@@ -100,6 +105,7 @@ protected:
   std::string ImageSource;
   std::string ImageFile;
   std::string ImageKey;
+  std::string Destination;
 
   vtkPlaneSource* Plane;
   vtkTextureMapToPlane* TexturePlane;

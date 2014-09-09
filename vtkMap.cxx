@@ -114,6 +114,7 @@ vtkMap::vtkMap()
   this->Zoom = 1;
   this->Center[0] = this->Center[1] = 0.0;
   this->Initialized = false;
+  this->Destination = "Tiles"; // Default destination directory for tiles
 
   // Load marker image
   // Todo Embed image data in header or source file?
@@ -318,6 +319,7 @@ void vtkMap::AddTiles()
         tile->SetImageKey(oss.str());
         tile->SetImageSource("http://tile.openstreetmap.org/" + zoom + "/" + row +
                              "/" + col + ".png");
+        tile->SetDestinationDir(this->Destination);
         tile->Init();
         this->AddTileToCache(this->Zoom, xIndex, yIndex, tile);
       }

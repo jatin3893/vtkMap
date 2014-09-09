@@ -34,6 +34,7 @@ int main()
   map->SetRenderer(rend.GetPointer());
   map->SetCenter(40, -70);
   map->SetZoom(5);
+  map->SetDestinationPath("Images/Tiles");
 
   vtkNew<vtkRegularPolygonSource> marker;
   vtkNew<vtkPolyDataMapper> markerMapper;

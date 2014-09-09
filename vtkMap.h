@@ -57,6 +57,11 @@ public:
   vtkSetMacro(Zoom, int)
 
   // Description:
+  // Get/Set Destination directory path
+  void  SetDestinationPath(const std::string& destdir) {this->Destination = destdir;}
+  std::string GetDestinationDir() {return this->Destination;}
+
+  // Description:
   // Get/Set center of the map
   void GetCenter(double (&latlngPoint)[2]);
   vtkSetVector2Macro(Center, double);
@@ -135,8 +140,8 @@ protected:
 
   std::set<vtkMapMarker*> MapMarkers;
 
-protected:
   bool Initialized;
+  std::string Destination;
 
 private:
   vtkMap(const vtkMap&);  // Not implemented
